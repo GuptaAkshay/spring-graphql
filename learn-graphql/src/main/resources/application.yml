@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: learn-graphql
+  graphql:
+    graphiql:
+      enabled: true
+
+
+

@@ -1,0 +1,19 @@
+# All avaiable queries on this graphql server
+type Query{
+    customers: [Customer]
+    customerById(id: ID) : Customer
+}
+
+type Customer {
+    id: ID
+    name: String
+    profile: Profile
+}
+
+type Profile {
+    id: ID
+    customerId: ID
+}
+
+
+
