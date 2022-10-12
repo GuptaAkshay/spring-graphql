@@ -22,7 +22,7 @@ public class LearnGraphqlClientsApplication {
 
   @Bean
   RSocketGraphQlClient rSocketGraphQlClient(RSocketGraphQlClient.Builder<?> builder) {
-    return builder.tcp("localhost", 9191).route("graphql").build();
+    return builder.tcp("localhost", 9192).route("graphql").build();
   }
 
   @Bean
@@ -44,16 +44,17 @@ public class LearnGraphqlClientsApplication {
           .toEntity(Customer.class)
           .subscribe(System.out::println);
 
-        /*var rSocketRequestDocument = """
+        var rSocketRequestDocument = """
           	subscription {
           		greetings {
           			greeting
+          		}
           	}
           """;
         rSocketGraphQlClient.document(rSocketRequestDocument)
           .retrieveSubscription("greetings")
           .toEntity(Greeting.class)
-          .subscribe(System.out::println);*/
+          .subscribe(System.out::println);
       }
     };
   }
